@@ -1,0 +1,208 @@
+:root {
+  --pb-theme-text: #000000;
+}
+
+.pb-theme-color {
+  color: var(--pb-theme-text);
+}
+
+.pb-about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.pb-about-slider {
+  --card-title-size: 100px;
+  --card-title-size-2: 85px;
+  --card-title-size-3: 75px;
+  position: relative;
+  scrollbar-width: none;
+  scrollbar-width: none;
+  padding-right: 15px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 377px;
+    padding: 58px;
+    padding-right: 46px;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #70707030;
+    transition:
+      1s cubic-bezier(0.45, 0.64, 0.31, 0.82) background-color,
+      1s cubic-bezier(0.45, 0.64, 0.31, 0.82) border;
+    @media screen and (min-width: 1400px) {
+      box-shadow:
+        0 0 0 1px #e6e8eb,
+        0 8px 24px 0 rgb(0 0 0 / 12%);
+      width: 339px;
+      border: none;
+    }
+    @media screen and (max-width: 1399.98px) {
+      border-radius: 22px;
+    }
+    @media screen and (max-width: 1199.98px) {
+      padding: 40px;
+    }
+
+    @media screen and (max-width: 767.98px) {
+      padding: 41px 31px;
+    }
+
+    &Wrap {
+      @media screen and (min-width: 1400px) {
+        height: 100%;
+        margin-right: 22px;
+        transition: 0.64s cubic-bezier(0.79, 0.04, 0.25, 0.97) transform;
+        transform-origin: center;
+        transform-style: preserve-3d;
+        &.slide-active {
+          position: relative;
+          .pb-about-slider__card {
+            background-color: #fff;
+          }
+        }
+        &:not(.slide-active) {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      &:not(.swiper-slide-active) {
+        @media screen and (max-width: 1399.98px) {
+          opacity: 0.3;
+        }
+      }
+    }
+
+    &Title {
+      font-size: var(--card-title-size);
+      font-weight: 400;
+      line-height: calc(124 / 100);
+      color: #232323;
+      margin-bottom: 0;
+      padding-bottom: 20px;
+      white-space: nowrap;
+      width: max-content;
+
+      @media screen and (max-width: 1199.98px) {
+        font-size: var(--card-title-size-2);
+        line-height: calc(98 / 85);
+        margin-bottom: 50px;
+      }
+
+      @media screen and (max-width: 767.98px) {
+        font-size: var(--card-title-size-3);
+        line-height: calc(93 / 75);
+        margin-bottom: 50px;
+      }
+    }
+
+    &Description {
+      font-size: size(18);
+      font-weight: 400;
+      line-height: calc(24 / 18);
+      color: #232323;
+      margin-bottom: 0;
+
+      @media screen and (max-width: 1199.98px) {
+        font-size: size(17);
+        line-height: calc(28 / 17);
+      }
+
+      @media screen and (max-width: 767.98px) {
+        font-size: size(16);
+        line-height: calc(24 / 16);
+      }
+    }
+  }
+}
+
+.pb-about-section {
+  overflow: hidden;
+  .pb-btn {
+    font-size: size(16);
+    font-weight: 500;
+    line-height: 1;
+    width: max-content;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+    transform: translateZ(0);
+    @media screen and (min-width: 1400px) {
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    @media screen and (max-width: 767.98px) {
+      font-size: size(14);
+      &-arrow {
+        svg {
+          height: 11px;
+        }
+      }
+    }
+    &-arrow {
+      span {
+        margin-left: 8px;
+
+        svg {
+          path {
+            fill: currentColor;
+          }
+        }
+      }
+    }
+
+    &-link {
+      &-theme {
+        color: #232323;
+        display: flex;
+        position: relative;
+        padding-bottom: 6px;
+        &::after {
+          content: "";
+          width: 100%;
+          height: 1px;
+          background-color: #232323;
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: 0.5s cubic-bezier(0.25, 0.54, 0.38, 0.99) transform;
+        }
+        &:hover {
+          color: #232323;
+          @media screen and (min-width: 1400px) {
+            &::after {
+              transform-origin: left;
+              transform: scaleX(1);
+            }
+            svg {
+              animation: linkArrowAnim 0.7s ease-in-out;
+            }
+          }
+        }
+        span {
+          width: 15px;
+          height: 15px;
+          display: block;
+          overflow: hidden;
+        }
+        svg {
+          color: #232323;
+        }
+      }
+    }
+  }
+}
